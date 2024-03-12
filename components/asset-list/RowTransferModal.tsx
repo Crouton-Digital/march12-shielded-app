@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { BasicModal, AssetWithdrawTokens } from '@interchain-ui/react';
-import { useChainWallet, useManager } from '@/hooks';
+import { useChainWallet, useManager } from '@cosmos-kit/react';
 
 import BigNumber from 'bignumber.js';
 import { ChainName } from 'cosmos-kit';

@@ -1,4 +1,4 @@
-import { useChain, useManager } from '@/hooks';
+import { useChain, useManager } from '@cosmos-kit/react';
 import { Box, Stack, useTheme } from '@interchain-ui/react';
 import { MouseEventHandler, useEffect, useMemo } from 'react';
 import { FiAlertTriangle } from 'react-icons/fi';

@@ -4,6 +4,7 @@ import '@interchain-ui/react/styles';
 
 import { ThemeProvider, Toaster, useTheme } from '@interchain-ui/react';
 import type { AppProps } from 'next/app';
+import * as namada from '@/namada';
 import { ChainProvider } from '@cosmos-kit/react';
 
 import { aminoTypes, registry } from '../config/defaults';
@@ -13,11 +14,11 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 // import { assets, chains } from 'chain-registry';
 import { GasPrice } from '@cosmjs/stargate';
-import { SignerOptions } from 'cosmos-kit';
+import { SignerOptions, wallets } from 'cosmos-kit';
 
-import { wallets } from "@cosmos-kit/namada-extension"
+// import { wallets } from "@/namada"
 
-import { chains, assets } from "../namada.ts"
+import { chains, assets } from "@/namada"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -69,9 +70,11 @@ function CreateCosmosApp({ Component, pageProps }: AppProps) {
         signerOptions={signerOptions}
       >
         <QueryClientProvider client={queryClient}>
-          <main id="main" className={themeClass}>
-            <Component {...pageProps} />
-          </main>
+          <namada.ChainProvider>
+            <main id="main" className={themeClass}>
+              <Component {...pageProps} />
+            </main>
+          </namada.ChainProvider>
         </QueryClientProvider>
       </ChainProvider>
 

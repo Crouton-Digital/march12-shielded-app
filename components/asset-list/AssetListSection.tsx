@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, Box } from '@interchain-ui/react';
 import AssetsOverview from './AssetsOverview';
-import { useChain } from '@/hooks';
-import { useAssets } from '@/hooks/namada';
+import { useChain, useAssets } from '@/namada';
 import { ChainName } from 'cosmos-kit';
+import { useState, useEffect } from 'react';
 
 interface AssetListSectionProps {
   chainName: ChainName;
@@ -11,8 +11,20 @@ interface AssetListSectionProps {
 }
 
 export const AssetListSection = ({ chainName }: AssetListSectionProps) => {
-  const { isWalletConnected } = useChain(chainName);
-  const { data, isLoading, refetch } = useAssets(chainName);
+  const { isWalletConnected, address } = useChain(chainName);
+  const { data, isLoading, refetch } = useAssets(address);
+
+  // useEffect(() => {
+  //   if (address !== 'dummyAddress') {
+  //     refetch();
+  //   }
+  // }, [address, refetch]);
+
+  useEffect(() => {
+    console.log('isWalletConnected', isWalletConnected)
+  }, [isWalletConnected])
+
+  return (<h1>Status: {isWalletConnected ? "FIRST" : "SECOND"}</h1>)
 
   if (!isWalletConnected) {
     return (

@@ -13,7 +13,7 @@ import {
   osmosisProtoRegistry,
 } from 'osmo-query';
 
-import { chains, assets } from "../namada.ts"
+import { chains, assets } from "@/namada"
 
 export const defaultChainName = 'namada';
 export const KeplrWalletName = 'keplr-extension';

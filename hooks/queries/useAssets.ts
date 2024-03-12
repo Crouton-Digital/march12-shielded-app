@@ -18,6 +18,8 @@ import { getPagination } from './useTotalAssets';
 const MAX_TOKENS_TO_SHOW = 50;
 
 export const useAssets = (chainName: string) => {
+  throw 'do not use this one'
+  
   const { address } = useChain(chainName);
 
   const { cosmosQuery, isReady, isFetching } = useQueryHooks(chainName);
