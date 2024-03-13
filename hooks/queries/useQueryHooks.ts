@@ -1,4 +1,4 @@
-import { useChain } from '@/hooks';
+import { useChain } from '@/namada';
 import { useRpcEndpoint, useRpcClient, createRpcQueryHooks } from 'osmo-query';
 
 export const useQueryHooks = (chainName: string, extraKey?: string) => {

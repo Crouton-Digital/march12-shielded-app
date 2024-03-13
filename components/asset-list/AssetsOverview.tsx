@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { useChain } from '@/hooks';
+import { useChain } from '@/namada';
 
 import BigNumber from 'bignumber.js';
 import { ChainName } from 'cosmos-kit';
@@ -147,13 +147,13 @@ const AssetsOverview = ({
       <SingleChain
         isLoading={isLoading || isLoadingTotalAssets}
         title="Your assets"
-        listTitle={`On ${chain.pretty_name}`}
+        listTitle={`On ${chain?.pretty_name}`}
         showDeposit={ibcAssets.length > 0}
         showWithdraw={hasBalance}
         onDeposit={onDepositAsset}
         onWithdraw={onWithdrawAsset}
         singleChainHeader={{
-          label: `Total on ${chain.pretty_name}`,
+          label: `Total on ${chain?.pretty_name}`,
           value: `${data?.total ?? 0}`,
         }}
         list={assetsToShow}

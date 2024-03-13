@@ -1,5 +1,5 @@
 import { Coin } from '@cosmjs/stargate';
-import { useChain } from '@/hooks';
+import { useChain } from '@/namada';
 
 import { UseQueryResult } from '@tanstack/react-query';
 import BigNumber from 'bignumber.js';

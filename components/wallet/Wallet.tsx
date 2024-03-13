@@ -1,4 +1,4 @@
-import { useChain, useManager } from '@cosmos-kit/react';
+// import { useChain, useManager } from '@cosmos-kit/react';
 import { Box, Stack, useTheme } from '@interchain-ui/react';
 import { MouseEventHandler, useEffect, useMemo } from 'react';
 import { FiAlertTriangle } from 'react-icons/fi';
@@ -21,6 +21,8 @@ import { ConnectedShowAddress, CopyAddressBtn } from './AddressCard';
 import { UserInfo } from './UserInfo';
 import { Astronaut } from './Astronaut';
 import { ChainCard } from './ChainCard';
+
+import { useChain, useManager } from '@/namada';
 
 export interface WalletSectionProps {
   isMultiChain: boolean;

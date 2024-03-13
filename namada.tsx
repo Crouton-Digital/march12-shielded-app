@@ -22,7 +22,11 @@ export const useAssets = () => {
 			setIsLoading(true);
 			if (address == 'dummyAddress') return;
 			try {
-				const balances = await window.namada.balances({ owner: address });
+				const balances = await window.namada.balances({
+					owner: address, tokens: [
+						"tnam1qxvg64psvhwumv3mwrrjfcz0h3t3274hwggyzcee"
+					],
+				},);
 				const assets = balances.map((balance) => ({
 					symbol: balance.token,
 					logoUrl: '', // Replace with actual logo URL
@@ -97,7 +101,7 @@ export const useChain = () => {
 		setChain(dummyChain);
 	}, []);
 
-	return { isWalletConnected, connect, openView, status, username, address, message, wallet, chain,  };
+	return { isWalletConnected, connect, openView, status, username, address, message, wallet, chain, };
 };
 
 export const useManager = () => {

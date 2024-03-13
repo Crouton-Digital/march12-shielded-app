@@ -24,8 +24,6 @@ export const AssetListSection = ({ chainName }: AssetListSectionProps) => {
     console.log('isWalletConnected', isWalletConnected)
   }, [isWalletConnected])
 
-  return (<h1>Status: {isWalletConnected ? "FIRST" : "SECOND"}</h1>)
-
   if (!isWalletConnected) {
     return (
       <Box maxWidth="768px" marginX="auto" marginBottom="60px">
